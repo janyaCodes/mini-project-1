@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\CSE\SEM-4\mini-project-1\workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+872784021.index
+3780813491.index
+2219558880.index
+3190556408.index
+104836942.index
+1975583924.index

@@ -1,0 +1,42 @@
+package com.demo.reminder;
+
+import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.util.List;
+
+import com.demo.reminder.dao.EventDAO;
+import com.demo.reminder.type.Event;
+
+public class ReminderTask implements Runnable{
+	
+	private EventDAO eventDAO;
+	
+	public ReminderTask() {
+		eventDAO = new EventDAO();
+	}
+
+	@Override
+	public void run() {
+		System.out.println("task executed @" + LocalDateTime.now());
+		
+		sendReminders();		
+	}
+	
+	private void sendReminders() {
+		try {
+			List<Event> events = eventDAO.getEventsToNotify();
+			for(Event event : events){
+				notify(event);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void notify(Event event) {
+	
+		System.out.println("Event to notify!! " + event);
+		
+	}
+
+}
